@@ -5,6 +5,15 @@ public class Radio {
 
     private int stationNumber;
     private int volume = 5;
+    private int countStation = 10;
+
+    public Radio() {
+
+    }
+
+    public Radio(int newCountStation) {
+        countStation = newCountStation;
+    }
 
     public int getStationNumber() {
         return stationNumber;
@@ -12,14 +21,14 @@ public class Radio {
 
     public void setStationNumber(int newStationNumber) {
 
-        if (newStationNumber > 9 || newStationNumber < 0)
+        if (newStationNumber > countStation - 1 || newStationNumber < 0)
             return;
         stationNumber = newStationNumber;
 
     }
 
     public void next() {
-        if (stationNumber < 9)
+        if (stationNumber < countStation - 1)
             stationNumber++;
         else
             stationNumber = 0;
@@ -29,7 +38,7 @@ public class Radio {
         if (stationNumber > 0)
             stationNumber--;
         else
-            stationNumber = 9;
+            stationNumber = countStation - 1;
     }
 
     public int getVolume() {
@@ -37,7 +46,7 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (volume < 10)
+        if (volume < 100)
             volume++;
     }
 
